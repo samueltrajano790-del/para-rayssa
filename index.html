@@ -1,0 +1,256 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Rayssa ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg,#fff8f8,#fef6ff);
+    color:#333;
+    line-height:1.8;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.hero h1{
+    font-size:3rem;
+    color:#d14d72;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:700px;
+    font-size:1.2rem;
+}
+
+.heart{
+    font-size:3rem;
+    animation:pulse 1.5s infinite;
+    margin:20px 0;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+.section{
+    max-width:900px;
+    margin:auto;
+    padding:80px 25px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#d14d72;
+}
+
+ul{
+    list-style:none;
+}
+
+li{
+    margin:12px 0;
+    padding:12px;
+    background:#fff6fa;
+    border-radius:10px;
+}
+
+.verse{
+    font-style:italic;
+    text-align:center;
+    font-size:1.2rem;
+    color:#6a4c93;
+}
+
+.footer{
+    text-align:center;
+    padding:60px 20px;
+}
+
+button{
+    padding:15px 25px;
+    border:none;
+    border-radius:30px;
+    background:#d14d72;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.hidden{
+    display:none;
+}
+
+.message{
+    margin-top:25px;
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="heart">❤️</div>
+    <h1>Para Rayssa</h1>
+
+    <p>
+        Esta página foi feita especialmente para você.
+        Não é apenas uma mensagem, mas um pequeno espaço onde deixei
+        algumas palavras que primeiro entreguei a Deus em oração.
+    </p>
+</section>
+
+<section class="section">
+    <div class="card">
+        <h2>O Que Eu Gosto em Você</h2>
+
+        <ul>
+            <li>🌷 Seu jeito tranquilo e reservado.</li>
+            <li>📖 Seu amor pelas coisas de Deus.</li>
+            <li>😊 Seu sorriso que transmite paz.</li>
+            <li>💝 Seu coração gentil.</li>
+            <li>✨ Sua simplicidade.</li>
+            <li>🌹 A forma única como você é.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section">
+    <div class="card">
+        <h2>Uma Pequena Carta</h2>
+
+        <p>
+            Rayssa, desde que te conheci, percebi que algumas pessoas têm
+            a capacidade de tornar os dias mais leves apenas por existirem.
+        </p>
+
+        <br>
+
+        <p>
+            Eu gosto da sua forma de ser, do seu jeito discreto, da sua
+            dedicação a Deus e da pessoa que você é.
+        </p>
+
+        <br>
+
+        <p>
+            Não quero apressar nada. Quero apenas continuar conhecendo você,
+            respeitando seu tempo e permitindo que Deus conduza cada passo.
+        </p>
+
+        <br>
+
+        <p>
+            Independentemente do que o futuro reserva, sou grato por cada
+            conversa, cada sorriso e cada momento compartilhado.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="card">
+        <h2>Versículo Especial</h2>
+
+        <p class="verse">
+            "Tudo tem o seu tempo determinado, e há tempo para todo propósito debaixo do céu."
+            <br><br>
+            Eclesiastes 3:1
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="card" style="text-align:center;">
+        <h2>Uma Última Mensagem</h2>
+
+        <button onclick="mostrarMensagem()">
+            Clique Aqui ❤️
+        </button>
+
+        <div id="mensagemFinal" class="hidden message">
+            <p>
+                Rayssa,
+            </p>
+
+            <br>
+
+            <p>
+                Eu não sei exatamente como Deus escreverá os próximos capítulos
+                da nossa história, mas sei que sou grato por ter conhecido você.
+            </p>
+
+            <br>
+
+            <p>
+                Continuarei orando, esperando e permitindo que tudo aconteça
+                no tempo certo.
+            </p>
+
+            <br>
+
+            <p>
+                E enquanto esse tempo chega, quero que saiba que você é alguém
+                muito especial para mim. ❤️
+            </p>
+
+            <br>
+
+            <p>
+                Com carinho,
+                <br>
+                Samuel
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="footer">
+    ❤️ Feito especialmente para Rayssa ❤️
+</div>
+
+<script>
+function mostrarMensagem(){
+    document.getElementById('mensagemFinal').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
+```
