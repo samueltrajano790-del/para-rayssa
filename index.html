@@ -1,256 +1,380 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Rayssa ❤️</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg,#fff8f8,#fef6ff);
-    color:#333;
-    line-height:1.8;
+font-family:'Georgia',serif;
+background:
+radial-gradient(circle at top,#fff,#ffeef5);
+min-height:100vh;
+overflow-x:hidden;
+color:#4a2c35;
 }
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:30px;
+
+/* estrelas */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(#fff 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.4;
+animation:stars 20s linear infinite;
 }
 
-.hero h1{
-    font-size:3rem;
-    color:#d14d72;
-    margin-bottom:15px;
+@keyframes stars{
+from{transform:translateY(0);}
+to{transform:translateY(-200px);}
 }
 
-.hero p{
-    max-width:700px;
-    font-size:1.2rem;
-}
+
+
+/* corações */
 
 .heart{
-    font-size:3rem;
-    animation:pulse 1.5s infinite;
-    margin:20px 0;
+position:fixed;
+bottom:-20px;
+font-size:25px;
+animation: subir 8s linear infinite;
+opacity:.8;
 }
 
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.2);}
-    100%{transform:scale(1);}
+@keyframes subir{
+
+0%{
+transform:translateY(0) scale(1);
+opacity:0;
 }
 
-.section{
-    max-width:900px;
-    margin:auto;
-    padding:80px 25px;
+20%{
+opacity:1;
 }
 
-.card{
-    background:white;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+100%{
+transform:translateY(-110vh) scale(1.8);
+opacity:0;
 }
 
-h2{
-    text-align:center;
-    margin-bottom:25px;
-    color:#d14d72;
 }
 
-ul{
-    list-style:none;
+
+
+/* abertura */
+
+.container{
+
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+
 }
 
-li{
-    margin:12px 0;
-    padding:12px;
-    background:#fff6fa;
-    border-radius:10px;
+
+h1{
+
+font-size:3rem;
+color:#c94f7c;
+margin-bottom:30px;
+
 }
 
-.verse{
-    font-style:italic;
-    text-align:center;
-    font-size:1.2rem;
-    color:#6a4c93;
+
+.carta{
+
+width:320px;
+height:220px;
+background:#fff;
+border-radius:15px;
+box-shadow:0 15px 40px #0003;
+position:relative;
+cursor:pointer;
+transition:1s;
+display:flex;
+align-items:center;
+justify-content:center;
+
 }
 
-.footer{
-    text-align:center;
-    padding:60px 20px;
+
+.carta::before{
+
+content:"💌";
+
+font-size:80px;
+
 }
+
+
+.carta.aberta{
+
+transform:rotateX(180deg);
+
+}
+
+
+.conteudo{
+
+display:none;
+max-width:800px;
+background:#fff;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 40px #0002;
+margin:30px auto;
+animation:aparecer 2s;
+
+}
+
+
+@keyframes aparecer{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:none;
+}
+
+}
+
+
+.conteudo h2{
+
+text-align:center;
+color:#c94f7c;
+margin-bottom:25px;
+
+}
+
+
+.texto{
+
+font-size:1.15rem;
+line-height:2;
+
+}
+
 
 button{
-    padding:15px 25px;
-    border:none;
-    border-radius:30px;
-    background:#d14d72;
-    color:white;
-    font-size:1rem;
-    cursor:pointer;
-    transition:.3s;
+
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:#c94f7c;
+color:white;
+font-size:18px;
+cursor:pointer;
+
 }
+
 
 button:hover{
-    transform:scale(1.05);
+
+transform:scale(1.05);
+
 }
 
-.hidden{
-    display:none;
+
+.versiculo{
+
+margin-top:30px;
+text-align:center;
+font-style:italic;
+color:#705090;
+
 }
 
-.message{
-    margin-top:25px;
-    background:#fff;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+.assinatura{
+
+margin-top:30px;
+text-align:right;
+
 }
+
+
 </style>
+
 </head>
+
 
 <body>
 
-<section class="hero">
-    <div class="heart">❤️</div>
-    <h1>Para Rayssa</h1>
 
-    <p>
-        Esta página foi feita especialmente para você.
-        Não é apenas uma mensagem, mas um pequeno espaço onde deixei
-        algumas palavras que primeiro entreguei a Deus em oração.
-    </p>
-</section>
+<div class="container">
 
-<section class="section">
-    <div class="card">
-        <h2>O Que Eu Gosto em Você</h2>
 
-        <ul>
-            <li>🌷 Seu jeito tranquilo e reservado.</li>
-            <li>📖 Seu amor pelas coisas de Deus.</li>
-            <li>😊 Seu sorriso que transmite paz.</li>
-            <li>💝 Seu coração gentil.</li>
-            <li>✨ Sua simplicidade.</li>
-            <li>🌹 A forma única como você é.</li>
-        </ul>
-    </div>
-</section>
+<h1>Para Rayssa ❤️</h1>
 
-<section class="section">
-    <div class="card">
-        <h2>Uma Pequena Carta</h2>
 
-        <p>
-            Rayssa, desde que te conheci, percebi que algumas pessoas têm
-            a capacidade de tornar os dias mais leves apenas por existirem.
-        </p>
-
-        <br>
-
-        <p>
-            Eu gosto da sua forma de ser, do seu jeito discreto, da sua
-            dedicação a Deus e da pessoa que você é.
-        </p>
-
-        <br>
-
-        <p>
-            Não quero apressar nada. Quero apenas continuar conhecendo você,
-            respeitando seu tempo e permitindo que Deus conduza cada passo.
-        </p>
-
-        <br>
-
-        <p>
-            Independentemente do que o futuro reserva, sou grato por cada
-            conversa, cada sorriso e cada momento compartilhado.
-        </p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="card">
-        <h2>Versículo Especial</h2>
-
-        <p class="verse">
-            "Tudo tem o seu tempo determinado, e há tempo para todo propósito debaixo do céu."
-            <br><br>
-            Eclesiastes 3:1
-        </p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="card" style="text-align:center;">
-        <h2>Uma Última Mensagem</h2>
-
-        <button onclick="mostrarMensagem()">
-            Clique Aqui ❤️
-        </button>
-
-        <div id="mensagemFinal" class="hidden message">
-            <p>
-                Rayssa,
-            </p>
-
-            <br>
-
-            <p>
-                Eu não sei exatamente como Deus escreverá os próximos capítulos
-                da nossa história, mas sei que sou grato por ter conhecido você.
-            </p>
-
-            <br>
-
-            <p>
-                Continuarei orando, esperando e permitindo que tudo aconteça
-                no tempo certo.
-            </p>
-
-            <br>
-
-            <p>
-                E enquanto esse tempo chega, quero que saiba que você é alguém
-                muito especial para mim. ❤️
-            </p>
-
-            <br>
-
-            <p>
-                Com carinho,
-                <br>
-                Samuel
-            </p>
-        </div>
-    </div>
-</section>
-
-<div class="footer">
-    ❤️ Feito especialmente para Rayssa ❤️
+<div class="carta" onclick="abrirCarta(this)">
 </div>
 
+
+<div id="cartaTexto" class="conteudo">
+
+
+<h2>Uma carta para você 🌷</h2>
+
+
+<div class="texto">
+
+
+<p>
+Rayssa, algumas pessoas chegam na nossa vida de uma forma simples,
+mas conseguem trazer uma alegria diferente aos nossos dias.
+</p>
+
+<br>
+
+
+<p>
+Desde que conheci você, comecei a admirar seu jeito tranquilo,
+sua simplicidade, sua dedicação a Deus e essa forma única de enxergar a vida.
+</p>
+
+
+<br>
+
+
+<p>
+Eu não quero apressar nada, quero apenas continuar conhecendo você,
+respeitando seu tempo e deixando Deus conduzir cada detalhe da nossa história.
+</p>
+
+
+<br>
+
+
+<p>
+Assim como uma pequena oração entregue a Deus,
+essa página representa algumas palavras que primeiro coloquei diante dEle.
+</p>
+
+
+<br>
+
+
+<p>
+Que tudo aconteça no tempo certo, porque aquilo que vem de Deus
+não precisa ser forçado.
+</p>
+
+
+<div class="versiculo">
+
+"Há tempo para todo propósito debaixo do céu."
+<br>
+Eclesiastes 3:1
+
+</div>
+
+
+<div class="assinatura">
+
+Com carinho ❤️
+<br>
+Samuel
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
 <script>
-function mostrarMensagem(){
-    document.getElementById('mensagemFinal').classList.remove('hidden');
+
+
+function abrirCarta(){
+
+let carta=document.querySelector(".carta");
+
+carta.classList.add("aberta");
+
+
+setTimeout(()=>{
+
+document.getElementById("cartaTexto").style.display="block";
+
+window.scrollTo({
+
+top:400,
+
+behavior:"smooth"
+
+});
+
+},800);
+
+
 }
+
+
+
+/* criar corações */
+
+function criarCoracao(){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+
+document.body.appendChild(h);
+
+
+setTimeout(()=>{
+
+h.remove();
+
+},10000);
+
+}
+
+
+setInterval(criarCoracao,500);
+
+
 </script>
+
 
 </body>
 </html>
-```
