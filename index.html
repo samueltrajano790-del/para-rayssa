@@ -14,241 +14,295 @@
 }
 
 body{
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg,#fff8f8,#fef6ff);
-    color:#333;
+    font-family: Georgia, serif;
+    overflow-x:hidden;
+    background:linear-gradient(to bottom,#081229,#152a52,#1d3f7a);
+    color:white;
+    min-height:100vh;
+}
+
+/* ESTRELAS */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-2;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.2;}
+    50%{opacity:1;}
+}
+
+/* CORAÇÕES */
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:#ff8ab5;
+    animation:floatUp linear forwards;
+    z-index:-1;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+/* CONTEÚDO */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:40px 20px;
+    text-align:center;
+}
+
+h1{
+    font-size:3rem;
+    margin-top:50px;
+}
+
+.subtitle{
+    margin-top:20px;
+    font-size:1.2rem;
     line-height:1.8;
 }
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:30px;
-}
-
-.hero h1{
-    font-size:3rem;
-    color:#d14d72;
-    margin-bottom:15px;
-}
-
-.hero p{
-    max-width:700px;
-    font-size:1.2rem;
-}
-
-.heart{
-    font-size:3rem;
-    animation:pulse 1.5s infinite;
-    margin:20px 0;
-}
-
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.2);}
-    100%{transform:scale(1);}
-}
-
-.section{
-    max-width:900px;
-    margin:auto;
-    padding:80px 25px;
-}
-
 .card{
-    background:white;
-    border-radius:20px;
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
     padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    border-radius:20px;
+    margin-top:40px;
 }
 
-h2{
-    text-align:center;
-    margin-bottom:25px;
-    color:#d14d72;
+.card h2{
+    margin-bottom:20px;
 }
 
-ul{
-    list-style:none;
+.card p{
+    line-height:1.9;
 }
 
-li{
-    margin:12px 0;
-    padding:12px;
-    background:#fff6fa;
+/* ENVELOPE */
+
+.envelope{
+    width:320px;
+    height:220px;
+    margin:60px auto;
+    position:relative;
+    cursor:pointer;
+}
+
+.base{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#d14d72;
+    border-radius:0 0 10px 10px;
+}
+
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#ea7097;
+    clip-path:polygon(0 0,100% 0,50% 55%);
+    transform-origin:top;
+    transition:1s;
+    z-index:5;
+}
+
+.letter{
+    position:absolute;
+    width:90%;
+    left:5%;
+    background:white;
+    color:#333;
+    padding:20px;
     border-radius:10px;
+    top:50px;
+    transition:1s;
+    z-index:2;
+    transform:translateY(80px);
 }
 
-.verse{
-    font-style:italic;
-    text-align:center;
-    font-size:1.2rem;
-    color:#6a4c93;
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .letter{
+    transform:translateY(-130px);
 }
 
 .footer{
-    text-align:center;
-    padding:60px 20px;
-}
-
-button{
-    padding:15px 25px;
-    border:none;
-    border-radius:30px;
-    background:#d14d72;
-    color:white;
-    font-size:1rem;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-.hidden{
-    display:none;
-}
-
-.message{
-    margin-top:25px;
-    background:#fff;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    margin:70px 0 30px;
+    opacity:.8;
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-    <div class="heart">❤️</div>
-    <h1>Para Rayssa</h1>
+<div class="stars" id="stars"></div>
 
-    <p>
-        Esta página foi feita especialmente para você.
-        Não é apenas uma mensagem, mas um pequeno espaço onde deixei
-        algumas palavras que primeiro entreguei a Deus em oração.
+<div class="container">
+
+    <h1>Para Rayssa ❤️</h1>
+
+    <p class="subtitle">
+        Algumas palavras são especiais demais para serem ditas de qualquer forma.
+        Por isso, antes de escrevê-las, eu as entreguei a Deus em oração.
     </p>
-</section>
 
-<section class="section">
     <div class="card">
-        <h2>O Que Eu Gosto em Você</h2>
-
-        <ul>
-            <li>🌷 Seu jeito tranquilo e reservado.</li>
-            <li>📖 Seu amor pelas coisas de Deus.</li>
-            <li>😊 Seu sorriso que transmite paz.</li>
-            <li>💝 Seu coração gentil.</li>
-            <li>✨ Sua simplicidade.</li>
-            <li>🌹 A forma única como você é.</li>
-        </ul>
-    </div>
-</section>
-
-<section class="section">
-    <div class="card">
-        <h2>Uma Pequena Carta</h2>
+        <h2>O que admiro em você 🌹</h2>
 
         <p>
-            Rayssa, desde que te conheci, percebi que algumas pessoas têm
-            a capacidade de tornar os dias mais leves apenas por existirem.
-        </p>
-
-        <br>
-
-        <p>
-            Eu gosto da sua forma de ser, do seu jeito discreto, da sua
-            dedicação a Deus e da pessoa que você é.
-        </p>
-
-        <br>
-
-        <p>
-            Não quero apressar nada. Quero apenas continuar conhecendo você,
-            respeitando seu tempo e permitindo que Deus conduza cada passo.
-        </p>
-
-        <br>
-
-        <p>
-            Independentemente do que o futuro reserva, sou grato por cada
-            conversa, cada sorriso e cada momento compartilhado.
+            Seu amor por Deus, sua simplicidade, sua maneira tranquila de viver,
+            seu coração gentil e a forma única como você permanece sendo você mesma.
         </p>
     </div>
-</section>
 
-<section class="section">
     <div class="card">
-        <h2>Versículo Especial</h2>
+        <h2>Uma Carta Para Você 💌</h2>
 
-        <p class="verse">
-            "Tudo tem o seu tempo determinado, e há tempo para todo propósito debaixo do céu."
-            <br><br>
-            Eclesiastes 3:1
-        </p>
-    </div>
-</section>
+        <p>Clique no envelope para abrir.</p>
 
-<section class="section">
-    <div class="card" style="text-align:center;">
-        <h2>Uma Última Mensagem</h2>
+        <div class="envelope" onclick="abrirCarta()">
 
-        <button onclick="mostrarMensagem()">
-            Clique Aqui ❤️
-        </button>
+            <div class="base"></div>
 
-        <div id="mensagemFinal" class="hidden message">
-            <p>
-                Rayssa,
-            </p>
+            <div class="flap"></div>
 
-            <br>
+            <div class="letter">
 
-            <p>
-                Eu não sei exatamente como Deus escreverá os próximos capítulos
-                da nossa história, mas sei que sou grato por ter conhecido você.
-            </p>
+                <h3>Para Rayssa ❤️</h3>
 
-            <br>
-
-            <p>
-                Continuarei orando, esperando e permitindo que tudo aconteça
-                no tempo certo.
-            </p>
-
-            <br>
-
-            <p>
-                E enquanto esse tempo chega, quero que saiba que você é alguém
-                muito especial para mim. ❤️
-            </p>
-
-            <br>
-
-            <p>
-                Com carinho,
                 <br>
-                Samuel
-            </p>
-        </div>
-    </div>
-</section>
 
-<div class="footer">
-    ❤️ Feito especialmente para Rayssa ❤️
+                <p>
+                    Rayssa,
+                </p>
+
+                <p>
+                    Sou grato a Deus por ter colocado você no meu caminho.
+                </p>
+
+                <p>
+                    Quanto mais te conheço, mais admiro a pessoa que você é,
+                    não apenas pela sua beleza, mas pelos valores que carrega
+                    e pelo amor que demonstra por Deus.
+                </p>
+
+                <p>
+                    Não quero apressar nada. Quero apenas continuar conhecendo você,
+                    respeitando seu tempo e confiando que Deus sabe exatamente
+                    o que está fazendo.
+                </p>
+
+                <p>
+                    Independentemente de qualquer coisa, saiba que você é alguém
+                    muito especial para mim.
+                </p>
+
+                <br>
+
+                <p>
+                    Com carinho,<br>
+                    Samuel ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h2>Versículo Especial 📖</h2>
+
+        <p>
+            "Tudo tem o seu tempo determinado, e há tempo para todo propósito
+            debaixo do céu."
+        </p>
+
+        <br>
+
+        <strong>Eclesiastes 3:1</strong>
+    </div>
+
+    <div class="footer">
+        Feito especialmente para Rayssa ❤️
+    </div>
+
 </div>
 
 <script>
-function mostrarMensagem(){
-    document.getElementById('mensagemFinal').classList.remove('hidden');
+
+function abrirCarta(){
+    document.querySelector(".envelope")
+            .classList.toggle("open");
 }
+
+/* estrelas */
+
+for(let i=0;i<150;i++){
+
+    let star=document.createElement("div");
+    star.className="star";
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    star.style.animationDelay=Math.random()*3+"s";
+
+    document.getElementById("stars").appendChild(star);
+}
+
+/* corações */
+
+function criarCoracao(){
+
+    let heart=document.createElement("div");
+
+    heart.className="heart";
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"%";
+
+    heart.style.fontSize=(15+Math.random()*25)+"px";
+
+    heart.style.animationDuration=(6+Math.random()*6)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },12000);
+}
+
+setInterval(criarCoracao,700);
+
 </script>
 
 </body>
