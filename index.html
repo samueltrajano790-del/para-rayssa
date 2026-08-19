@@ -1,409 +1,398 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Um pequeno gesto para alguém especial ❤️</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    font-family:'Georgia',serif;
-    background:
-    linear-gradient(135deg,#fff5f7,#f8edf5,#fffaf2);
-}
-
-
-/* Corações flutuando */
-
-.heart{
-    position:absolute;
-    bottom:-50px;
-    font-size:25px;
-    color:#e7a3bb;
-    animation:subir 8s infinite linear;
-    opacity:.7;
-}
-
-@keyframes subir{
-
-0%{
-    transform:translateY(0) scale(1);
-    opacity:0;
-}
-
-20%{
-    opacity:1;
-}
-
-100%{
-    transform:translateY(-110vh) scale(1.5);
-    opacity:0;
-}
-
-}
-
-
-/* Área da carta */
-
-.carta-container{
-    width:90%;
-    max-width:750px;
-    height:520px;
-    cursor:pointer;
-    position:relative;
-}
-
-
-/* Envelope fechado */
-
-.carta-fechada{
-
-    position:absolute;
-    width:100%;
-    height:100%;
-
-    background:#fff;
-    border-radius:20px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    box-shadow:
-    0 20px 40px rgba(0,0,0,.15);
-
-    z-index:2;
-
-    transition:1.5s;
-
-}
-
-
-.carta-fechada:before{
-
-content:"";
-
-position:absolute;
-top:0;
-left:0;
-
-border-left:50% solid transparent;
-
-}
-
-
-.selo{
-
-font-size:70px;
-animation:pulsar 1.5s infinite;
-
-}
-
-
-.carta-fechada p{
-
-margin-top:20px;
-font-size:22px;
-color:#b76e8b;
-
-}
-
-
-/* Carta aberta */
-
-
-.carta-aberta{
-
-position:absolute;
-
-width:100%;
-height:auto;
-max-height:90vh;
-
-overflow-y:auto;
-
-background:white;
-
-padding:45px;
-
-border-radius:25px;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.15);
-
-opacity:0;
-
-transform:scale(.7) translateY(50px);
-
-transition:1.5s;
-
-}
-
-
-/* quando abrir */
-
-
-.aberta .carta-fechada{
-
-transform:
-rotateX(90deg)
-translateY(-100px);
-
-opacity:0;
-
-}
-
-
-
-.aberta .carta-aberta{
-
-opacity:1;
-
-transform:
-scale(1)
-translateY(0);
-
-}
-
-
-/* Texto */
-
-
-h1{
-
-text-align:center;
-
-color:#b76e8b;
-
-font-size:30px;
-
-margin-bottom:35px;
-
-}
-
-
-
-.texto{
-
-font-size:18px;
-
-line-height:1.8;
-
-color:#444;
-
-text-align:justify;
-
-}
-
-
-
-.texto p{
-
-margin-bottom:20px;
-
-}
-
-
-
-.assinatura{
-
-margin-top:35px;
-
-text-align:right;
-
-font-size:22px;
-
-color:#b76e8b;
-
-font-style:italic;
-
-}
-
-
-
-@keyframes pulsar{
-
-50%{
-
-transform:scale(1.2);
-
-}
-
-}
-
-
-
-/* Celular */
-
-
-@media(max-width:600px){
-
-.carta-container{
-
-height:600px;
-
-}
-
-
-.carta-aberta{
-
-padding:25px;
-
-}
-
-
-h1{
-
-font-size:24px;
-
-}
-
-
-.texto{
-
-font-size:16px;
-
-}
-
-}
-
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Minha Cacheada ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+            background: linear-gradient(135deg, #2b0a16, #6b1733, #a52a4a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            overflow-x: hidden;
+        }
+
+        /* Corações flutuando no fundo */
+        .heart {
+            position: fixed;
+            color: rgba(255, 255, 255, 0.18);
+            font-size: 25px;
+            bottom: -50px;
+            animation: subir 8s linear infinite;
+            z-index: 0;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(3) {
+            left: 55%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(4) {
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Cartão principal */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 850px;
+            background: rgba(255, 248, 250, 0.97);
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Título */
+        .titulo {
+            color: #8d2141;
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
+            color: #777;
+            font-size: 18px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .linha {
+            width: 100px;
+            height: 3px;
+            background: #b8325b;
+            margin: 0 auto 30px;
+            border-radius: 10px;
+        }
+
+        /* Foto */
+        .foto-container {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            padding: 7px;
+            background: linear-gradient(
+                135deg,
+                #b8325b,
+                #f3a1b8,
+                #b8325b
+            );
+            box-shadow: 0 10px 30px rgba(141, 33, 65, 0.35);
+        }
+
+        .foto-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            display: block;
+        }
+
+        /* Texto */
+        .mensagem {
+            color: #3f2930;
+            font-size: 19px;
+            line-height: 1.9;
+            text-align: left;
+            max-width: 720px;
+            margin: auto;
+        }
+
+        .mensagem p {
+            margin-bottom: 18px;
+        }
+
+        .destaque {
+            color: #8d2141;
+            font-weight: bold;
+        }
+
+        .coracao {
+            font-size: 35px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Assinatura */
+        .assinatura {
+            margin-top: 30px;
+            color: #8d2141;
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        .final {
+            margin-top: 10px;
+            color: #777;
+            font-size: 15px;
+        }
+
+        /* Botão */
+        .botao {
+            margin-top: 30px;
+            background: #8d2141;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(141, 33, 65, 0.3);
+        }
+
+        .botao:hover {
+            background: #b8325b;
+            transform: scale(1.05);
+        }
+
+        /* Mensagem surpresa */
+        #surpresa {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff0f4;
+            border-radius: 20px;
+            color: #8d2141;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        /* Celular */
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                padding: 25px 18px;
+                border-radius: 22px;
+            }
+
+            .titulo {
+                font-size: 32px;
+            }
+
+            .subtitulo {
+                font-size: 16px;
+            }
+
+            .foto-container {
+                width: 220px;
+                height: 220px;
+            }
+
+            .mensagem {
+                font-size: 17px;
+                line-height: 1.8;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-
-<div class="heart" style="left:10%">❤️</div>
-<div class="heart" style="left:30%;animation-delay:2s">♡</div>
-<div class="heart" style="left:50%;animation-delay:4s">❤️</div>
-<div class="heart" style="left:70%;animation-delay:1s">♡</div>
-<div class="heart" style="left:90%;animation-delay:3s">❤️</div>
-
+    <!-- Corações -->
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
 
 
-<div class="carta-container" onclick="abrirCarta()">
+    <!-- CARTÃO -->
+    <div class="container">
+
+        <h1 class="titulo">
+            Para Minha Cacheada ❤️
+        </h1>
+
+        <p class="subtitulo">
+            Algumas coisas são difíceis de explicar...
+        </p>
+
+        <div class="linha"></div>
 
 
+        <!-- FOTO -->
+        <!--
+            IMPORTANTE:
+            A foto deve estar na mesma pasta deste arquivo
+            e se chamar exatamente: foto.jpeg
+        -->
 
-<div class="carta-fechada">
+        <div class="foto-container">
 
-<div class="selo">
-❤️
-</div>
+            <img
+                src="foto.jpeg"
+                alt="Nossa foto"
+            >
 
-<p>
-Clique para abrir minha carta
-</p>
-
-</div>
-
-
-
-<div class="carta-aberta">
-
-
-<h1>
-Um pequeno gesto para alguém especial ❤️
-</h1>
+        </div>
 
 
+        <!-- MENSAGEM -->
+        <div class="mensagem">
 
-<div class="texto">
+            <p>
+                Talvez eu não consiga explicar em palavras tudo o que sinto,
+                mas existem momentos em que um simples olhar diz muito mais.
+            </p>
 
+            <p>
+                Você se tornou alguém
+                <span class="destaque">
+                    especial para mim
+                </span>
+                de uma forma que eu não esperava.
+            </p>
 
-<p>
-Oi, linda ❤️
-</p>
+            <p>
+                Gosto da maneira como você é, do seu jeito, do seu sorriso,
+                da sua personalidade e até das pequenas coisas que talvez
+                você nem perceba.
+            </p>
 
+            <p>
+                Aos poucos, você foi ocupando um espaço no meu coração,
+                e hoje eu percebo o quanto é bom ter alguém como você
+                por perto.
+            </p>
 
-<p>
-Vim aqui através dessa mensagem só para te lembrar o quanto você tem se tornado alguém especial para mim.
-</p>
-
-
-<p>
-Desde que você chegou, tenho percebido como sua presença traz uma alegria diferente para os meus dias. É bom gostar de você, é bom conversar com você e é bom estar perto de você. Tem algo no seu jeito que consegue mudar o ambiente e trazer uma felicidade que, às vezes, eu nem consigo explicar.
-</p>
-
-
-<p>
-Eu gosto muito do seu jeito de ser, da sua forma tranquila de enxergar as coisas, da sua timidez, do seu sorriso e, como você já sabe rsrs, dos seus olhos, que têm um jeito único de chamar minha atenção.
-</p>
-
-
-<p>
-Quero que saiba que você tem ocupado meus pensamentos. Muitas vezes me pego lembrando de uma conversa nossa, de algum detalhe seu ou simplesmente sorrindo por ter conhecido você.
-</p>
-
-
-<p>
-Mas, acima de tudo, quero que tudo aconteça da melhor forma possível. Sem pressa, sem pressão e sem nada que faça você se sentir desconfortável. Quero que seja algo leve, construído com calma, respeito e colocando Deus à frente de cada passo.
-</p>
-
-
-<p>
-Eu quero te fazer feliz de verdade, e esse é um pequeno gesto que encontrei para tentar deixar seu dia um pouco melhor. Como já te falei, acredito que pequenos detalhes podem fazer uma grande diferença na vida de alguém, e eu quero, sempre que puder, ser alguém que acrescenta alegria aos seus dias.
-</p>
+            <p>
+                Não quero apressar nada, nem transformar sentimentos em
+                pressão. Quero apenas deixar as coisas acontecerem no
+                tempo certo, com carinho, respeito e, acima de tudo,
+                colocando tudo nas mãos de Deus.
+            </p>
 
 
-<p>
-Obrigado por ser essa pessoa tão especial. ❤️
-</p>
+            <div class="coracao">
+                ❤️
+            </div>
 
 
+            <p>
+                Talvez você nem imagine o quanto um simples momento ao
+                seu lado pode significar para mim.
+            </p>
 
-</div>
+            <p>
+                E se um dia eu conseguir construir uma história bonita
+                ao seu lado, quero que seja uma história daquelas que
+                começam devagar, crescem com cuidado e permanecem porque
+                foram construídas com verdade.
+            </p>
 
+            <p>
+                <span class="destaque">
+                    Você é alguém que eu quero continuar conhecendo,
+                    admirando e cuidando.
+                </span>
+            </p>
 
-
-<div class="assinatura">
-
-Com carinho,<br>
-
-Samuel ❤️
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-<script>
-
-function abrirCarta(){
-
-document
-.querySelector(".carta-container")
-.classList.add("aberta");
-
-}
-
-</script>
+        </div>
 
 
+        <!-- ASSINATURA -->
+        <div class="assinatura">
+            Com carinho, para você. ❤️
+        </div>
+
+        <div class="final">
+            Feito especialmente para alguém muito especial.
+        </div>
+
+
+        <!-- BOTÃO -->
+        <button
+            class="botao"
+            onclick="mostrarSurpresa()"
+        >
+            Clique aqui ❤️
+        </button>
+
+
+        <!-- SURPRESA -->
+        <div id="surpresa">
+
+            Se você chegou até aqui...
+            saiba que existe alguém sorrindo só de imaginar
+            você lendo isso. ❤️
+
+            <br><br>
+
+            Que Deus cuide de nós e de tudo aquilo que Ele permitir
+            que aconteça entre nós. ✨
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function mostrarSurpresa() {
+
+            const surpresa =
+                document.getElementById("surpresa");
+
+            if (surpresa.style.display === "block") {
+
+                surpresa.style.display = "none";
+
+            } else {
+
+                surpresa.style.display = "block";
+
+            }
+        }
+
+    </script>
 
 </body>
-
 </html>
